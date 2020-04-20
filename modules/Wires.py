@@ -1,10 +1,8 @@
-from collections import namedtuple
-
 from InputHelper import InputHelper
 from CommonData import CommonData
 
 class WiresData:
-    _VALID_COLORS = ['B', 'G', 'K', 'R', 'W', 'Y']
+    VALID_COLORS = ['B', 'G', 'K', 'R', 'W', 'Y']
 
     def __init__(self):
         self._wires_read = False
@@ -12,10 +10,10 @@ class WiresData:
 
     def _read_wires_input(self):
         label = "Wire colors (Black is K)"
-        self._wires = InputHelper.read_char_array(label, WiresData._VALID_COLORS)
+        self._wires = InputHelper.read_char_array(label, WiresData.VALID_COLORS)
         while len(self._wires) < 3 or len(self._wires) > 6:
             print("[Error] Must have >= 3 and <= 6 wires!")
-            self._wires = InputHelper.read_char_list(label, WiresData._VALID_COLORS)
+            self._wires = InputHelper.read_char_list(label, WiresData.VALID_COLORS)
         self._wires_read = True
 
     def wires(self):
